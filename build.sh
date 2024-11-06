@@ -12,12 +12,7 @@ RELEASE="$(rpm -E %fedora)"
 # List of rpmfusion packages can be found here:
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/39/x86_64/repoview/index.html&protocol=https&redirect=1
 
-# this installs a package from fedora repos
-rpm-ostree install screen
-
-# this would install a package from rpmfusion
-# rpm-ostree install vlc
+rpm-ostree install clamav lynis
 
 #### Example for enabling a System Unit File
-
-systemctl enable podman.socket
+# systemctl enable podman.socket

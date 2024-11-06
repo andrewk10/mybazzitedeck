@@ -33,7 +33,7 @@ ARG SOURCE_IMAGE="bazzite"
 # - stable-zfs
 # - stable-nvidia-zfs
 # - (and the above with testing rather than stable)
-ARG SOURCE_SUFFIX="-deck"
+ARG SOURCE_SUFFIX=""
 
 ## SOURCE_TAG arg must be a version built for the specific image: eg, 39, 40, gts, latest
 ARG SOURCE_TAG="stable"
@@ -50,10 +50,8 @@ FROM ghcr.io/ublue-os/${SOURCE_IMAGE}${SOURCE_SUFFIX}:${SOURCE_TAG}
 
 COPY daemon.log /var/log/mullvad-vpn/daemon.log
 COPY build.sh /tmp/build.sh
-COPY MullvadVPN-2024.7_x86_64.rpm /tmp/MullvadVPN-2024.7_x86_64.rpm
 
 RUN mkdir -p /var/lib/alternatives && \
-    mkdir -p /opt/Mullvad VPN/resources/mullvad-setup && \
     /tmp/build.sh && \
     ostree container commit
 ## NOTES:
